@@ -44,7 +44,9 @@ def main(wf):
         path_logo = "images/"+item_id+".png"
         img_logo = path_logo if os.path.exists(path_logo) else ICON_NETWORK
         title = item['name'] + " (" + item['symbol'] + ")"
-        subtitle = currency + " " + str(round(item['quote'][currency]['price'], 2))
+        subtitle = currency + " " + str(round(item['quote'][currency]['price'], 2)) \
+            +"     Last 24h: " + str(round(item['quote'][currency]['percent_change_24h'], 2)) + "%" \
+            +"     Last 7d: " + str(round(item['quote'][currency]['percent_change_7d'], 2))
         arg = "https://coinmarketcap.com/"+os.getenv('language').lower()+"/currencies/" + item['slug']
         wf.add_item(
             title=title,
