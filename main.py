@@ -28,7 +28,7 @@ def get_web_data():
 #         f.write(img)
 
 def key_for_coin(ticker):
-    return json.dumps(ticker)
+    return u'{} {}'.format(ticker['name'], ticker['symbol'])
 
 def main(wf):
     currency = os.getenv('currency').upper()
